@@ -30,4 +30,6 @@ jobs:
           else
             echo "short_sha=${{ inputs.commit }}" >> $GITHUB_ENV
           fi
+      - name: echo
+        run: |
           echo "Commit to deploy: ${{ env.short_sha }}"
