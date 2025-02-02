@@ -1,0 +1,26 @@
+name: PROD
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  id-token: write
+  contents: read
+  packages: write
+
+jobs:
+  ci:
+    uses: bz-services/Testing/.github/workflows/ci.yaml@main
+    with:
+      commit: ${{ inputs.commit }}
+    secrets: inherit
+
+  cd:
+    uses: bz-services/Testing/.github/workflows/cd.yaml@main
+    needs: ci
+    with:
+      commit: ${{ inputs.commit }}
+      appenv: prod
+    secrets: inherit

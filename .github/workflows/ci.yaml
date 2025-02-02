@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  workflow_call:
+    inputs:
+      commit:
+        type: string
+        description: 'Short SHA of commit to build (6 char)'
+        required: false
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.commit }}
+
+      - name: Set short_sha
+        id: vars
+        run: |
+          if [[ "${{ inputs.commit }}" == "" ]]; then
+            echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          else
+            echo "short_sha=${{ inputs.commit }}" >> $GITHUB_ENV
+          fi
