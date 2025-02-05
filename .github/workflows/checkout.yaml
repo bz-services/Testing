@@ -29,5 +29,5 @@ jobs:
 
       - name: echo file
         run: |
-          cat text.txt
+          cat test.txt
 
