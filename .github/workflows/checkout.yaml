@@ -21,7 +21,12 @@ jobs:
 
       - name: Set short_sha
         id: vars
-        run: echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+        run: |
+          if [[ "${{ inputs.commit }}" == "" ]]; then
+            echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          else
+            echo "short_sha=${{ inputs.commit }}" >> $GITHUB_ENV
+          fi
 
       - name: short_sha
         run: |
