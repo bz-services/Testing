@@ -1,4 +1,4 @@
-name: DEV (CICD)
+name: 2. CICD (DEV)
 
 on:
   push:
