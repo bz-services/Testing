@@ -1,11 +1,11 @@
-name: STAGING
+name: STAGING (CD)
 
 on:
   workflow_dispatch:
     inputs:
       commit:
         type: string
-        description: 'Short SHA of commit to deploy (6 char)'
+        description: 'Full SHA of commit to be deployed'
         required: false
 
 permissions:
@@ -14,16 +14,9 @@ permissions:
   packages: write
 
 jobs:
-  ci:
-    uses: bz-services/Testing/.github/workflows/ci.yaml@main
-    with:
-      commit: ${{ inputs.commit }}
-    secrets: inherit
-
   cd:
-    uses: bz-services/Testing/.github/workflows/cd.yaml@main
+    uses: bz-services/Testing/.github/workflows/deploy-to-ecs.yaml@main
     needs: ci
     with:
       commit: ${{ inputs.commit }}
       appenv: staging
-    secrets: inherit
