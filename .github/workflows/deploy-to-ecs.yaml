@@ -34,3 +34,7 @@ jobs:
       - name: echo
         run: |
           echo "Commit to deploy: ${{ env.short_sha }}"
+      
+      - name: cat file
+        run: |
+          cat test.txt
