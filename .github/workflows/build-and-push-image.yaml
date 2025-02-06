@@ -31,6 +31,6 @@ jobs:
             echo "short_sha=$(git rev-parse --short ${{ inputs.commit }})" >> $GITHUB_ENV
           fi
       
-      - name: echo file
+      - name: cat file
         run: |
           cat test.txt
