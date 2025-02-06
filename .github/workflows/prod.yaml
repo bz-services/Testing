@@ -1,4 +1,4 @@
-name: 5. CD (PROD)
+name: CD (PROD)
 
 on:
   workflow_dispatch:
