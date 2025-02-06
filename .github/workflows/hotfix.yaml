@@ -1,4 +1,4 @@
-name: checkout
+name: Hotfix
 
 on:
   workflow_dispatch:
