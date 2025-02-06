@@ -1,4 +1,4 @@
-name: 4. CD (STAGING)
+name: CD (STAGING)
 
 on:
   workflow_dispatch:
