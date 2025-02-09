@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   cd:
-    uses: bz-services/workflows-jobs/.github/workflows/deploy-to-ecs.yaml@main
+    uses: bz-services/workflows-jobs/deploy-to-ecs.yaml@main
     with:
       commit: ${{ inputs.commit }}
       appenv: staging
