@@ -11,10 +11,10 @@ permissions:
 
 jobs:
   CI:
-    uses: bz-services/Testing/.github/workflows/build-and-push-image.yaml@main
+    uses: bz-services/workflows-jobs/.github/workflows/build-and-push-image.yaml@main
 
   CD:
-    uses: bz-services/Testing/.github/workflows/deploy-to-ecs.yaml@main
+    uses: bz-services/workflows-jobs/.github/workflows/deploy-to-ecs.yaml@main
     needs: CI
     with:
       appenv: dev
