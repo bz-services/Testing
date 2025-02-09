@@ -15,6 +15,6 @@ permissions:
 
 jobs:
   CI:
-    uses: bz-services/workflows-jobs/build-and-push-image.yaml@main
+    uses: bz-services/workflows-jobs/.github/workflows/build-and-push-image.yaml@main
     with:
       commit: ${{ inputs.commit }}
