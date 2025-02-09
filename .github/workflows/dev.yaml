@@ -15,8 +15,7 @@ permissions:
 
 jobs:
   cd:
-    uses: bz-services/Testing/.github/workflows/deploy-to-ecs.yaml@main
-    needs: ci
+    uses: bz-services/workflows-jobs/.github/workflows/deploy-to-ecs.yaml@main
     with:
       commit: ${{ inputs.commit }}
       appenv: dev
